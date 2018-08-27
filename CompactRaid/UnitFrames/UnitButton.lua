@@ -1488,9 +1488,18 @@ function addon._UnitButton_OnLoad(frame)
 	selectionHighlight:Hide()
 
 	-- Aura frames
-	local buffParent = CreateFrame("Button", name.."BuffParent", layerFrame)
-	local debuffParent = CreateFrame("Button", name.."DeBuffParent", layerFrame)
-	local dispelParent = CreateFrame("Button", name.."DispelParent", layerFrame)
+	local buffParent = CreateFrame("Button", name.."BuffParent", frame, "CompactAuraTemplate")
+	local debuffParent = CreateFrame("Button", name.."DeBuffParent", frame, "CompactAuraTemplate")
+	local dispelParent = CreateFrame("Button", name.."DispelParent", frame, "CompactAuraTemplate")
+    
+    -- Fixed for issue#1
+    buffParent:SetAllPoints(artFrame)
+	buffParent:SetFrameLevel(50)
+    debuffParent:SetAllPoints(artFrame)
+	debuffParent:SetFrameLevel(50)
+    dispelParent:SetAllPoints(artFrame)
+	dispelParent:SetFrameLevel(50)
+    
 	frame.buffParent = buffParent
 	frame.debuffParent = debuffParent
 	frame.dispelParent = dispelParent
