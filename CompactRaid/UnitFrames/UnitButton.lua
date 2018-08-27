@@ -1494,11 +1494,11 @@ function addon._UnitButton_OnLoad(frame)
     
     -- Fixed for issue#1
     buffParent:SetAllPoints(artFrame)
-	buffParent:SetFrameLevel(50)
+    buffParent:SetFrameLevel(50)
     debuffParent:SetAllPoints(artFrame)
-	debuffParent:SetFrameLevel(50)
+    debuffParent:SetFrameLevel(50)
     dispelParent:SetAllPoints(artFrame)
-	dispelParent:SetFrameLevel(50)
+    dispelParent:SetFrameLevel(50)
     
 	frame.buffParent = buffParent
 	frame.debuffParent = debuffParent
