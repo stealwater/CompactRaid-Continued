@@ -1,6 +1,6 @@
 ## Interface: 80000
 ## Title: CompactRaid
-## Version: 4.33.1
+## Version: 4.33.2
 ## Author: Abin
 ## SavedVariables: CompactRaidDB
 ## SavedVariablesPerCharacter: CompactRaidCharDB
