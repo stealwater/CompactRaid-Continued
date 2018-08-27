@@ -31,7 +31,7 @@ local function FindAura(unit, aura, selfcast, lacks, similar)
 	if similar then
 		name, icon, count, dispelType, duration, expires, caster, harmful = auraGroups:UnitAura(unit, aura)
 	else
-		name, icon, count, _, duration, expires = AuraUtil.FindAuraByName(unit, aura, filter .. "|HELPFUL")
+		name, icon, count, _, duration, expires = AuraUtil.FindAuraByName(aura, unit, filter .. "|HELPFUL")
 		if not name then
 			harmful = 1
 			name, icon, count, _, duration, expires = AuraUtil.FindAuraByName(aura, unit, filter .. "|HARMFUL")
