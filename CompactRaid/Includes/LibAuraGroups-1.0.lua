@@ -177,12 +177,12 @@ local function FindAura(list, unit, exclude)
 	local _, aura, name, icon, count, dispelType, duration, expires, caster
 	for aura in pairs(list) do
 		if aura ~= exclude then
-			name, _, icon, count, dispelType, duration, expires, caster = UnitBuff(unit, aura)
+			name, icon, count, dispelType, duration, expires, caster = AuraUtil.FindAuraByName(aura, unit, "HELPFUL")
 			if name then
 				return name, icon, count, dispelType, duration, expires, caster
 			end
 
-			name, _, icon, count, dispelType, duration, expires, caster = UnitDebuff(unit, aura)
+			name, icon, count, dispelType, duration, expires, caster = AuraUtil.FindAuraByName(aura, unit, "HARMFUL")
 			if name then
 				return name, icon, count, dispelType, duration, expires, caster, 1
 			end
@@ -199,12 +199,12 @@ function lib:UnitAura(unit, aura, group)
 		return FindAura(InternalGetGroupAuras(group), unit)
 	end
 
-	local name, _, icon, count, dispelType, duration, expires, caster = UnitBuff(unit, aura)
+	local name, icon, count, dispelType, duration, expires, caster = AuraUtil.FindAuraByName(aura, unit, "HELPFUL")
 	if name then
 		return name, icon, count, dispelType, duration, expires, caster
 	end
 
-	name, _, icon, count, dispelType, duration, expires, caster = UnitDebuff(unit, aura)
+	name, icon, count, dispelType, duration, expires, caster = AuraUtil.FindAuraByName(aura, unit, "HARMFUL")
 	if name then
 		return name, icon, count, dispelType, duration, expires, caster, 1
 	end

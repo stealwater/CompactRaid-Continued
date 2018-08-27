@@ -79,7 +79,10 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 246014)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 243431, 5)
 
 BOSS = 2031 -- Argus the Unmaker
---module:RegisterDebuff(TIER, INSTANCE, BOSS, 00000)
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 248499, 5)
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 250669)
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 251570)
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 257299)
 
 BOSS = 0
 --module:RegisterDebuff(TIER, INSTANCE, BOSS, 0)

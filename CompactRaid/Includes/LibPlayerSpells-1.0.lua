@@ -398,7 +398,7 @@ local spellSentList = {}
 local castTimeRecords = {}
 
 local function UpdateCastingTime(spell, func)
-	local _, _, _, _, startTime, endTime = func("player")
+	local _, _, _, startTime, endTime = func("player")
 	if startTime and endTime then
 		castTimeRecords[spell] = (endTime - startTime) / 1000
 	end

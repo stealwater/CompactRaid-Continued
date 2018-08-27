@@ -297,13 +297,47 @@ function module:ClearUserLevels()
 	end
 end
 
+-- Fixed for 8.0
+-- Start
+function GetCurrentMapContinent_()
+    local currentMapId = C_Map.GetBestMapForUnit("player")
+    
+    if currentMapId == nil then
+        return 
+    end
+     
+    -- get the Continent parent
+    local candidate 
+    local mapInfo =  C_Map.GetMapInfo(currentMapId)
+    while mapInfo do 
+        if ( mapInfo.mapType == Enum.UIMapType.Continent ) then 
+            candidate = mapInfo
+            break
+        end 
+        
+        if mapInfo.parentMapID then 
+            mapInfo = C_Map.GetMapInfo(mapInfo.parentMapID);
+        else 
+            break
+        end
+    end
+    
+    if candidate then
+        return candidate.mapID
+    else
+        return 
+    end
+end
+-- End
+
 function module:GetZoneDebuffs()
 	local zone = GetInstanceInfo() or GetRealZoneText()
 	if not zone then
 		return
 	end
 
-	local continent = continentList[GetCurrentMapContinent()]
+    local continent = continentList[GetCurrentMapContinent_()]
+--	local continent = continentList[GetCurrentMapContinent()]
 
 	local _, tier
 	for _, tier in pairs(tierList) do
@@ -461,6 +495,23 @@ local function BuildInstanceList(tier, instanceType, list)
 	end
 end
 
+-- Fixed for 8.0 
+-- Start
+function GetMapContinents_() 
+    local continents = {}
+    
+    local allContinents = C_Map.GetMapChildrenInfo(946,2,1);
+    local j = 1
+    for i = 1, #allContinents do 
+        continents[j] = allContinents[i].mapID
+        continents[j+1] = allContinents[i].name
+        j = j + 2
+    end
+
+    return continents
+end
+-- End
+
 function module:InitAPI()
 	local i
 	local numTiers = EJ_GetNumTiers()
@@ -475,7 +526,8 @@ function module:InitAPI()
 	end
 
 	-- World bosses do not stay in "instances" since 6.0
-	local list = { GetMapContinents() }
+	--local list = { GetMapContinents() }
+    local list = { GetMapContinents_() }
 	local i
 	for i = 1, #list do
 		local name = list[i]
