@@ -29,6 +29,7 @@ module.DEFAULT_SPELLS = {
 
 	DRUID = {
 		774, -- Rejuvenation
+        155777, -- Rejuvenation (Germination)
 		8936, -- Regrowth
         22812, -- Barkskin
 		33763, -- Lifebloom
