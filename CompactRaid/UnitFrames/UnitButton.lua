@@ -1100,6 +1100,7 @@ end
 
 local function CreateAuraFrame(key, name, parent, list)
 	local frame = CreateFrame("Button", name, parent, "CompactAuraTemplate")
+	frame:EnableMouse(false)
 	frame:Hide()
 	frame:SetSize(11, 11)
 	frame.key = key
@@ -1488,14 +1489,9 @@ function addon._UnitButton_OnLoad(frame)
 	selectionHighlight:Hide()
 
 	-- Aura frames
-	local buffParent = CreateFrame("Button", name.."BuffParent", frame, "CompactAuraTemplate")
-	local debuffParent = CreateFrame("Button", name.."DeBuffParent", frame, "CompactAuraTemplate")
-	local dispelParent = CreateFrame("Button", name.."DispelParent", frame, "CompactAuraTemplate")
-    
-	-- Fixed for issue#1
-	buffParent:SetFrameLevel(50)
-	debuffParent:SetFrameLevel(50)
-	dispelParent:SetFrameLevel(50)
+	local buffParent = CreateFrame("Button", name.."BuffParent", layerFrame)
+	local debuffParent = CreateFrame("Button", name.."DeBuffParent", layerFrame)
+	local dispelParent = CreateFrame("Button", name.."DispelParent", layerFrame)
     
 	frame.buffParent = buffParent
 	frame.debuffParent = debuffParent
