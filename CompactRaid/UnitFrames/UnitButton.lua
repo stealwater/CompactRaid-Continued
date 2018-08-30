@@ -1489,9 +1489,9 @@ function addon._UnitButton_OnLoad(frame)
 	selectionHighlight:Hide()
 
 	-- Aura frames
-	local buffParent = CreateFrame("Button", name.."BuffParent", layerFrame)
-	local debuffParent = CreateFrame("Button", name.."DeBuffParent", layerFrame)
-	local dispelParent = CreateFrame("Button", name.."DispelParent", layerFrame)
+	local buffParent = CreateFrame("Frame", name.."BuffParent", layerFrame)
+	local debuffParent = CreateFrame("Frame", name.."DeBuffParent", layerFrame)
+	local dispelParent = CreateFrame("Frame", name.."DispelParent", layerFrame)
     
 	frame.buffParent = buffParent
 	frame.debuffParent = debuffParent
