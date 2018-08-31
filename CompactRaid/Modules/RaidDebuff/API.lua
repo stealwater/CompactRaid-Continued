@@ -499,13 +499,14 @@ end
 -- Start
 function GetMapContinents_() 
     local continents = {}
-    
-    local allContinents = C_Map.GetMapChildrenInfo(946,2,1);
-    local j = 1
+    local COSMIC = 946
+	
+    local allContinents = C_Map.GetMapChildrenInfo(COSMIC,2,1)
+	
     for i = 1, #allContinents do 
-        continents[j] = allContinents[i].mapID
-        continents[j+1] = allContinents[i].name
-        j = j + 2
+		if allContinents[i] then
+			continents[i] = allContinents[i].name
+		end
     end
 
     return continents
