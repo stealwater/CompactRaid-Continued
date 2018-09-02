@@ -1,6 +1,6 @@
 ## Interface: 80100
 ## Title: CompactRaid
-## Version: 5.04
+## Version: 5.041
 ## Author: Abin
 ## SavedVariables: CompactRaidDB
 ## SavedVariablesPerCharacter: CompactRaidCharDB
