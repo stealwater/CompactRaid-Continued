@@ -23,8 +23,7 @@ local floor = floor
 local format = format
 local strmatch = strmatch
 local tonumber = tonumber
-local GetMapContinents = GetMapContinents
-local GetCurrentMapContinent = GetCurrentMapContinent
+local GetCurrentMapContinent = Pre80API.GetCurrentMapContinent
 local tinsert = tinsert
 local GetInstanceInfo = GetInstanceInfo
 local GetRealZoneText = GetRealZoneText
@@ -40,7 +39,6 @@ local module = CompactRaid:GetModule("RaidDebuff")
 if not module then return end
 
 local tierList = {}
-local continentList = {}
 local pendingList = {}
 local initDone
 
@@ -297,47 +295,13 @@ function module:ClearUserLevels()
 	end
 end
 
--- Fixed for 8.0
--- Start
-function GetCurrentMapContinent_()
-    local currentMapId = C_Map.GetBestMapForUnit("player")
-    
-    if currentMapId == nil then
-        return 
-    end
-     
-    -- get the Continent parent
-    local candidate 
-    local mapInfo =  C_Map.GetMapInfo(currentMapId)
-    while mapInfo do 
-        if ( mapInfo.mapType == Enum.UIMapType.Continent ) then 
-            candidate = mapInfo
-            break
-        end 
-        
-        if mapInfo.parentMapID then 
-            mapInfo = C_Map.GetMapInfo(mapInfo.parentMapID);
-        else 
-            break
-        end
-    end
-    
-    if candidate then
-        return candidate.mapID
-    else
-        return 
-    end
-end
--- End
-
 function module:GetZoneDebuffs()
 	local zone = GetInstanceInfo() or GetRealZoneText()
 	if not zone then
 		return
 	end
 
-    local continent = continentList[GetCurrentMapContinent_()]
---	local continent = continentList[GetCurrentMapContinent()]
+	local _, continent = GetCurrentMapContinent()
 
 	local _, tier
 	for _, tier in pairs(tierList) do
@@ -495,24 +459,6 @@ local function BuildInstanceList(tier, instanceType, list)
 	end
 end
 
--- Fixed for 8.0 
--- Start
-function GetMapContinents_() 
-    local continents = {}
-    local COSMIC = 946
-	
-    local allContinents = C_Map.GetMapChildrenInfo(COSMIC,2,1)
-	
-    for i = 1, #allContinents do 
-		if allContinents[i] then
-			continents[i] = allContinents[i].name
-		end
-    end
-
-    return continents
-end
--- End
-
 function module:InitAPI()
 	local i
 	local numTiers = EJ_GetNumTiers()
@@ -524,17 +470,6 @@ function module:InitAPI()
 		BuildInstanceList(i, "raid", tier.instances)
 		BuildInstanceList(i, "party", tier.instances)
 		tinsert(tierList, tier)
-	end
-
-	-- World bosses do not stay in "instances" since 6.0
-	--local list = { GetMapContinents() }
-    local list = { GetMapContinents_() }
-	local i
-	for i = 1, #list do
-		local name = list[i]
-		if type(name) == "string" then
-			tinsert(continentList, name)
-		end
 	end
 
 	initDone = 1

@@ -14,8 +14,8 @@ local pairs = pairs
 local CreateFrame = CreateFrame
 local strfind = strfind
 local tinsert = tinsert
-local UnitBuff = UnitBuff
-local UnitDebuff = UnitDebuff
+local UnitBuff = Pre80API.UnitBuff
+local UnitDebuff = Pre80API.UnitDebuff
 
 local module = CompactRaid:GetModule("CornerIndicators")
 if not module then return end
@@ -31,10 +31,10 @@ local function FindAura(unit, aura, selfcast, lacks, similar)
 	if similar then
 		name, icon, count, dispelType, duration, expires, caster, harmful = auraGroups:UnitAura(unit, aura)
 	else
-		name, icon, count, _, duration, expires = AuraUtil.FindAuraByName(aura, unit, filter .. "|HELPFUL")
+		name, icon, count, _, duration, expires = UnitBuff(unit, aura, nil, filter)
 		if not name then
 			harmful = 1
-			name, icon, count, _, duration, expires = AuraUtil.FindAuraByName(aura, unit, filter .. "|HARMFUL")
+			name, icon, count, _, duration, expires = UnitDebuff(unit, aura, nil, filter)
 		end
 	end
 

@@ -130,7 +130,7 @@ local FLYOUT_FACTOR = 10000000
 local MAX_TALENT_TIERS = MAX_TALENT_TIERS
 local NUM_TALENT_COLUMNS = NUM_TALENT_COLUMNS
 
-local VERSION = 1.51
+local VERSION = 1.52
 
 local lib = _G.LibPlayerSpells
 if lib and lib.version >= VERSION then return end

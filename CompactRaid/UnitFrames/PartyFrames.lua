@@ -28,7 +28,6 @@ for i = 0, 4 do
 
 	local playerButton = CreateFrame("Button", frame:GetName()..playerName, frame, "AbinCompactRaidUnitButtonTemplate")
 	playerButton:SetAttribute("unit", playerUnit)
-    playerButton:SetAttribute("toggleForVehicle", false)
 
 	local petButton = CreateFrame("Button", frame:GetName()..petName, petParent, "AbinCompactRaidUnitButtonTemplate")
 	petButton:SetAttribute("unit", petUnit)

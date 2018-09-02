@@ -18,8 +18,9 @@ local UnitPlayerControlled = UnitPlayerControlled
 local UnitCanAttack = UnitCanAttack
 local UnitReaction = UnitReaction
 local DebuffTypeColor = DebuffTypeColor
-local UnitBuff = UnitBuff
-local UnitDebuff = UnitDebuff
+local UnitBuff = Pre80API.UnitBuff
+local UnitDebuff = Pre80API.UnitDebuff
+local UnitAura = Pre80API.UnitAura
 local wipe = wipe
 local UnitGroupRolesAssigned = UnitGroupRolesAssigned
 local UnitIsDeadOrGhost = UnitIsDeadOrGhost
@@ -407,52 +408,18 @@ end
 
 local function UnitFrame_UpdateVehicleStatus(self)
 	local unit = self.unit
-    if not unit then return end
-	local shouldTargetVehicle = UnitHasVehicleUI(self.unit);
-	local unitVehicleToken;
-	
-	if ( shouldTargetVehicle ) then
-		local raidID = UnitInRaid(self.unit);
-		if ( raidID and not UnitTargetsVehicleInRaidUI(self.unit) ) then
-			shouldTargetVehicle = false;
-		end
-	end
-
-	if ( shouldTargetVehicle ) then
-		local prefix, id, suffix = strmatch(self.unit, "([^%d]+)([%d]*)(.*)")
-		unitVehicleToken = prefix.."pet"..id..suffix;
-		if ( not UnitExists(unitVehicleToken) ) then
-			shouldTargetVehicle = false;
-		end
-	end	
-    
-    if ( shouldTargetVehicle ) then
-        if ( UnitInParty(self.unit) ) then
-            shouldTargetVehicle = false;
-        end
-    end
-
-	if ( shouldTargetVehicle ) then
-		if ( not self.hasValidVehicleDisplay ) then
-			self.hasValidVehicleDisplay = true;
-			self.displayedUnit = self.unit;
-			self:SetAttribute("unit", self.displayedUnit);
-        else
-            self.inVehicle = 1
-            if unit == "player" then
-                self.displayedUnit = "vehicle"
-            else
-                local prefix, id, suffix = strmatch(unit, "([^%d]+)([%d]*)(.*)")
-                self.displayedUnit = prefix.."pet"..id..suffix
-            end
+	if not unit then return end
+	if UnitHasVehicleUI(unit) then
+		self.inVehicle = 1
+		if unit == "player" then
+			self.displayedUnit = "vehicle"
+		else
+			local prefix, id, suffix = strmatch(unit, "([^%d]+)([%d]*)(.*)")
+			self.displayedUnit = prefix.."pet"..id..suffix
 		end
 	else
-		if ( self.hasValidVehicleDisplay ) then
-			self.hasValidVehicleDisplay = false;
-            self.inVehicle = nil
-			self.displayedUnit = self.unit;
-			self:SetAttribute("unit", self.displayedUnit);
-		end
+		self.inVehicle = nil
+		self.displayedUnit = unit
 	end
 end
 
@@ -795,23 +762,23 @@ local function UnitFrame_UpdateFlags(self)
 		flag = "dead"
 		texture = DEATH_TEXTURE
 		text = DEAD
-	elseif AuraUtil.FindAuraByName(GHOST_AURA, unit, "HARMFUL") then
+	elseif UnitDebuff(unit, GHOST_AURA) then
 		flag = "ghost"
 		texture = GHOST_TEXTURE
 		text = DEAD
-	elseif self.unitClass == "PRIEST" and AuraUtil.FindAuraByName(SPIRIT_OF_REDEMPTION, unit, "HELPFUL") then
+	elseif self.unitClass == "PRIEST" and UnitDebuff(unit, SPIRIT_OF_REDEMPTION) then
 		flag = "spirit"
 		texture = SPIRIT_TEXTURE
 		text = DEAD
-	elseif self.unitClass == "MAGE" and select(10, AuraUtil.FindAuraByName(CAUTERIZE_AURA, unit, "HARMFUL")) == 87023 then
+	elseif self.unitClass == "MAGE" and select(10, UnitDebuff(unit, CAUTERIZE_AURA)) == 87023 then
 		flag = "dying"
 		texture = CAUTERIZE_TEXTURE
 		text = CAUTERIZE_AURA
-	elseif self.unitClass == "DEATHKNIGHT" and AuraUtil.FindAuraByName(PURGATORY_AURA, unit, "HARMFUL") then
+	elseif self.unitClass == "DEATHKNIGHT" and UnitDebuff(unit, PURGATORY_AURA) then
 		flag = "dying"
 		texture = PURGATORY_TEXTURE
 		text = PURGATORY_AURA
-	elseif self.unitClass == "ROGUE" and AuraUtil.FindAuraByName(CHEATING_DEATH_AURA, unit, "HELPFUL") then
+	elseif self.unitClass == "ROGUE" and UnitDebuff(unit, CHEATING_DEATH_AURA) then
 		flag = "dying"
 		texture = CHEATING_DEATH_TEXTURE
 		text = CHEATING_DEATH_AURA
@@ -903,10 +870,11 @@ end
 
 local function UnitFrame_RegisterEvents(self)
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
+	--self:RegisterEvent("PARTY_MEMBERS_CHANGED")
 	self:RegisterEvent("GROUP_ROSTER_UPDATE")
 	self:RegisterEvent("UNIT_HEALTH")
 	self:RegisterEvent("UNIT_MAXHEALTH")
-	self:RegisterEvent("UNIT_POWER_UPDATE")
+	self:RegisterEvent("UNIT_POWER_FREQUENT")
 	self:RegisterEvent("UNIT_MAXPOWER")
 	self:RegisterEvent("UNIT_DISPLAYPOWER")
 	self:RegisterEvent("UNIT_POWER_BAR_SHOW")
@@ -1079,7 +1047,7 @@ local function UnitFrame_OnEvent(self, event, unit)
 		elseif event == "UNIT_MAXPOWER" then
 			UnitFrame_UpdatePowerMax(self)
 			UnitFrame_UpdatePower(self)
-		elseif event == "UNIT_POWER_UPDATE" then
+		elseif event == "UNIT_POWER_FREQUENT" then
 			UnitFrame_UpdatePower(self)
 		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_BAR_SHOW" or event == "UNIT_POWER_BAR_HIDE" then
 			UnitFrame_UpdatePowerMax(self)
@@ -1492,7 +1460,6 @@ function addon._UnitButton_OnLoad(frame)
 	local buffParent = CreateFrame("Frame", name.."BuffParent", layerFrame)
 	local debuffParent = CreateFrame("Frame", name.."DeBuffParent", layerFrame)
 	local dispelParent = CreateFrame("Frame", name.."DispelParent", layerFrame)
-    
 	frame.buffParent = buffParent
 	frame.debuffParent = debuffParent
 	frame.dispelParent = dispelParent
