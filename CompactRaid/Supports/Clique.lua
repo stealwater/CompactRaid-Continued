@@ -21,18 +21,6 @@ function addon:CliqueRegister(frame)
 	end
 end
 
-function addon:InitializeCliqueRegister(frame) 
-	if not Clique then
-		return
-	end
-	
-	if frame then
-		Clique:RegisterFrame(frame)
-	else
-		self:EnumUnitFrames(Clique, "RegisterFrame")
-	end
-end
-
 function addon:CliqueUnregister(frame)
 	if not Clique or not self:Initialized() then
 		return
@@ -48,8 +36,8 @@ end
 if not Clique then return end
 
 addon:RegisterEventCallback("OnInitialize", function()
-	addon:InitializeCliqueRegister()
+	addon:CliqueRegister()
 	addon:RegisterEventCallback("UnitButtonCreated", function(frame)
-		addon:InitializeCliqueRegister(frame)
+		addon:CliqueRegister(frame)
 	end)
 end)

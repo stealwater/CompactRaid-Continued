@@ -409,19 +409,13 @@ end
 local function UnitFrame_UpdateVehicleStatus(self)
 	local unit = self.unit
 	if not unit then return end
-	
-	if addon.db.showVehicleHealthBar then
-		if UnitHasVehicleUI(unit) then
-			self.inVehicle = 1
-			if unit == "player" then
-				self.displayedUnit = "vehicle"
-			else
-				local prefix, id, suffix = strmatch(unit, "([^%d]+)([%d]*)(.*)")
-				self.displayedUnit = prefix.."pet"..id..suffix
-			end
+	if UnitHasVehicleUI(unit) then
+		self.inVehicle = 1
+		if unit == "player" then
+			self.displayedUnit = "vehicle"
 		else
-			self.inVehicle = nil
-			self.displayedUnit = unit
+			local prefix, id, suffix = strmatch(unit, "([^%d]+)([%d]*)(.*)")
+			self.displayedUnit = prefix.."pet"..id..suffix
 		end
 	else
 		self.inVehicle = nil
@@ -1198,15 +1192,6 @@ local optionTable = {
 	invertColor = function(frame, value)
 		UnitFrame_UpdateHealthColor(frame)
 		UnitFrame_UpdatePowerType(frame)
-	end,
-	
-    showVehicleHealthBar = function(frame, value)
-		if value then 
-			frame:SetAttribute("toggleForVehicle", true)
-		else 
-			frame:SetAttribute("toggleForVehicle", false)
-		end
-		UnitFrame_UpdateVehicleStatus(frame)
 	end,
 
 	showBuffs = function(frame, value)
