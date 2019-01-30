@@ -1,6 +1,6 @@
 ## Interface: 80000
 ## Title: CompactRaid
-## Version: 5.081
+## Version: 5.091
 ## Author: Abin
 ## SavedVariables: CompactRaidDB
 ## OptionalDeps: Clique, TomTom
