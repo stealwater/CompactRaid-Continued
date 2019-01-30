@@ -1,8 +1,8 @@
 ------------------------------------------------------------
--- Uldir.lua
+-- BattleofDazaralor.lua
 --
--- Abin
--- 2018/08/31
+-- Rowan
+-- 2019/01/30
 ------------------------------------------------------------
 
 local module = CompactRaid:GetModule("RaidDebuff")
