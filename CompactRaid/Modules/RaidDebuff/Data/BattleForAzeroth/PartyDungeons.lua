@@ -13,6 +13,9 @@ local INSTANCE
 
 -- Atal'Dazar (968)
 INSTANCE = 968
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 253562)
 module:RegisterDebuff(TIER, INSTANCE, 0, 254959, 5)
 module:RegisterDebuff(TIER, INSTANCE, 0, 260668)
@@ -37,6 +40,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 256577, 3)
 
 -- Shrine of the Storm (1036)
 INSTANCE = 1036
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 276268)
 module:RegisterDebuff(TIER, INSTANCE, 0, 264166, 5)
 module:RegisterDebuff(TIER, INSTANCE, 0, 264560, 4)
@@ -59,6 +65,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 269419)
 
 -- Tol Dagor (1002)
 INSTANCE = 1002
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 258079)
 module:RegisterDebuff(TIER, INSTANCE, 0, 258058)
 module:RegisterDebuff(TIER, INSTANCE, 0, 260016)
@@ -76,6 +85,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 256044)
 
 -- Waycrest Manor (1021)
 INSTANCE = 1021
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 263891)
 module:RegisterDebuff(TIER, INSTANCE, 0, 266035)
 module:RegisterDebuff(TIER, INSTANCE, 0, 266036)
@@ -99,6 +111,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 268202, 5)
 
 -- Siege of Boralus (1023)
 INSTANCE = 1023
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 260954)
 module:RegisterDebuff(TIER, INSTANCE, 0, 257459)
 module:RegisterDebuff(TIER, INSTANCE, 0, 257036)
@@ -116,6 +131,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 270624)
 
 -- King's Rest (1041)
 INSTANCE = 1041
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 270003)
 module:RegisterDebuff(TIER, INSTANCE, 0, 269936)
 module:RegisterDebuff(TIER, INSTANCE, 0, 276031)
@@ -142,6 +160,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 269369)
 
 -- The MOTHERLODE!! (1012)
 INSTANCE = 1012
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 280605)
 module:RegisterDebuff(TIER, INSTANCE, 0, 257371)
 module:RegisterDebuff(TIER, INSTANCE, 0, 269298)
@@ -156,6 +177,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 260838)
 
 -- Freehold (1001)
 INSTANCE = 1001
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 257437)
 module:RegisterDebuff(TIER, INSTANCE, 0, 258323)
 module:RegisterDebuff(TIER, INSTANCE, 0, 257747)
@@ -172,6 +196,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 257460)
 
 -- The Underrot (1022)
 INSTANCE = 1022
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 265019)
 module:RegisterDebuff(TIER, INSTANCE, 0, 265377)
 module:RegisterDebuff(TIER, INSTANCE, 0, 265568)
@@ -190,6 +217,9 @@ module:RegisterDebuff(TIER, INSTANCE, 0, 265533)
 
 -- Temple of Sethraliss (1030)
 INSTANCE = 1030
+module:RegisterDebuff(TIER, INSTANCE, 0, 209858) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 240559, 1) -- mythic affix
+module:RegisterDebuff(TIER, INSTANCE, 0, 243237, 1) -- mythic affix
 module:RegisterDebuff(TIER, INSTANCE, 0, 273563)
 module:RegisterDebuff(TIER, INSTANCE, 0, 263371)
 module:RegisterDebuff(TIER, INSTANCE, 0, 267027)
