@@ -99,6 +99,7 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 286105)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 288806)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 288939)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 287891)
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 282182, 4)
 
 BOSS = 2337 -- Blockade
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 285000)
@@ -120,3 +121,5 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 288038)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 287365)
 
 BOSS = 0 -- Trash
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 289772)
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 288836)
