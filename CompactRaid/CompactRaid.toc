@@ -1,15 +1,9 @@
-## Interface: 80205
+## Interface: 80300
 ## Title: CompactRaid
-## Version: 5.092
+## Version: 5.10
 ## Author: Abin
 ## SavedVariables: CompactRaidDB
 ## OptionalDeps: Clique, TomTom
-## X-Category: UnitFrame
-## X-eMail: abinn32@yahoo.com
-## X-Curse-Packaged-Version: v5.09
-## X-Curse-Project-Name: CompactRaid
-## X-Curse-Project-ID: compactraid
-## X-Curse-Repository-ID: wow/compactraid/mainline
 
 Includes\LibAddonManager.lua
 Includes\Pre80API.lua
