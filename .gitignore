@@ -1,0 +1,3 @@
+#ignore IDE files
+.DS_Store
+.idea
