@@ -944,7 +944,7 @@ function UICreateVirtualScrollList(name, parent, pageSize, selectable, checkbox,
 	scrollBar:SetMinMaxValues(0, 1)
 	scrollBar:SetValue(0)
 
-	local headerFrame = CreateFrame("Frame", name.."HeaderFrame", frame)
+	local headerFrame = CreateFrame("Frame", name.."HeaderFrame", frame, "BackdropTemplate")
 	frame.headerFrame = headerFrame
 	headerFrame:SetPoint("TOPLEFT")
 	headerFrame:SetPoint("TOPRIGHT", scrollBar, "TOPLEFT")
