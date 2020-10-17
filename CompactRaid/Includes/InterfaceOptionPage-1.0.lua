@@ -414,7 +414,7 @@ local function SingleGroup_OnCheckChanged(self, value, checked, button)
 end
 
 local function SingleGroup_SetSelection(self, value, noNotify)
-	local _, button, found
+	local found
 	for _, button in ipairs(self.buttons) do
 		if button.value == value then
 			found = button
