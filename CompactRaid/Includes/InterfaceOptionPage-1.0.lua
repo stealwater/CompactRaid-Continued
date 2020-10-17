@@ -96,7 +96,6 @@ local ipairs = ipairs
 local pairs = pairs
 local IsShiftKeyDown = IsShiftKeyDown
 local IsControlKeyDown = IsControlKeyDown
-local strtrim = strtrim
 local tinsert = tinsert
 local tremove = tremove
 local format = format

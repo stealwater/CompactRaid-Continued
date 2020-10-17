@@ -16,3 +16,27 @@ ignore = {
 	"43.", -- Shadowing an upvalue, an upvalue argument, an upvalue loop variable.
 	"542", -- An empty if branch
 }
+globals = {
+	"_G",
+	"format",
+	"wipe",
+	"LibAddonManager",
+	"max",
+	"min",
+	"CreateFrame",
+	"IsShiftKeyDown",
+	"IsControlKeyDown",
+	"strtrim",
+	"tinsert",
+	"tremove",
+	"strupper",
+	"getglobal",
+	"hooksecurefunc",
+	"CloseDropDownMenus",
+	"InterfaceOptions_AddCategory",
+	"InterfaceOptionsFrame_OpenToCategory",
+	"GetCurrentKeyBoardFocus",
+	"strmatch",
+	"UISpecialFrames",
+	"UICreateInterfaceOptionPage_IsNewerVersion",	
+}
