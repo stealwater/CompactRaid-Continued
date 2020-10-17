@@ -231,6 +231,7 @@ end
 
 local function CreatePanel(self, frame, noBackground, noEdge)
 	if type(frame) ~= "table" then
+		local _
 		frame = CreateSubControl(self, "Frame", _, "BackdropTemplate")
 	end
 

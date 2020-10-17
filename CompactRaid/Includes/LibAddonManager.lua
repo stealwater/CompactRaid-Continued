@@ -617,7 +617,6 @@ local function Addon_GetModule(self, key)
 		return modules[key]
 	end
 
-	local _, module
 	for _, module in ipairs(modules) do
 		if module.key == key then
 			return module
