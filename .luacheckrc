@@ -42,4 +42,11 @@ globals = {
 	"GameTooltip",
 	"HIGHLIGHT_FONT_COLOR",
 	"GRAY_FONT_COLOR",
+	"GREEN_FONT_COLOR,
+	"NORMAL_FONT_COLOR",
+	"STANDARD_TEXT_FONT",
+	"strsplit",
+	"strlower",
+	"UIDropDownMenu_AddButton",
+	"UIDropDownMenu_Initialize",
 }
