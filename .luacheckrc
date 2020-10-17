@@ -38,5 +38,8 @@ globals = {
 	"GetCurrentKeyBoardFocus",
 	"strmatch",
 	"UISpecialFrames",
-	"UICreateInterfaceOptionPage_IsNewerVersion",	
+	"UICreateInterfaceOptionPage_IsNewerVersion",
+	"GameTooltip",
+	"HIGHLIGHT_FONT_COLOR",
+	"GRAY_FONT_COLOR",
 }

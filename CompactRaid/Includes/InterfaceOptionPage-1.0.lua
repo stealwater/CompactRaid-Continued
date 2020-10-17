@@ -131,7 +131,6 @@ end
 
 frame:SetScript("OnEvent", function(self, event)
 	if event == "PLAYER_REGEN_ENABLED" then
-		local item
 		for item in pairs(self.items) do
 			if type(item) == "table" and item.__flag_combatDisabled == GUID then
 				item.__flag_combatDisabled = nil
@@ -139,7 +138,6 @@ frame:SetScript("OnEvent", function(self, event)
 			end
 		end
 	elseif event == "PLAYER_REGEN_DISABLED" then
-		local item
 		for item in pairs(self.items) do
 			if type(item) == "table" then
 				local _, enabled = pcall(item.IsEnabled, item)
@@ -337,7 +335,6 @@ local function CheckGroup_AddButton(self, text, value, disableInCombat, ...)
 	button.value = value
 
 	local pairCount = select("#", ...)
-	local i
 	for i = 1, pairCount, 2 do
 		local key = select(i, ...)
 		local value = select(i + 1, ...)
