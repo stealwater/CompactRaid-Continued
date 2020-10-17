@@ -161,7 +161,6 @@ local function FindObject(object)
 		return
 	end
 
-	local k, v
 	for k, v in ipairs(hookList) do
 		if v == object then
 			return k
@@ -189,7 +188,6 @@ function lib:UnhookObject(object)
 end
 
 local function CallHooks(method, ...)
-	local _, object
 	for _, object in ipairs(hookList) do
 		local func = object[method]
 		if type(func) == "function" then
@@ -299,10 +297,9 @@ local function AddFlyouts(id)
 		return
 	end
 
-	local i
 	for i = 1, numSlots do
-		local _, _, isKnown, name = GetFlyoutSlotInfo(id, i)
-		if isKnown and name then
+		local _, _, isKnownFlag, name = GetFlyoutSlotInfo(id, i)
+		if isKnownFlag and name then
 			if not spellList[name] then
 				tinsert(spellTable, name)
 			end
@@ -334,7 +331,6 @@ end
 local function UpdateTabSpells(tab)
 	local _, _, offset, count = GetSpellTabInfo(tab)
 	if offset and count then
-		local i
 		for i = 1, count do
 			VerifySpell(offset + i, BOOKTYPE_SPELL)
 		end
@@ -346,7 +342,6 @@ local function UpdateSpellData()
 	wipe(spellTable)
 	local num = HasPetSpells()
 	if type(num) == "number" and num > 0 then
-		local id
 		for id = 1, num do
 			VerifySpell(id, BOOKTYPE_PET)
 		end
@@ -369,7 +364,6 @@ local talentMap = {}
 local function UpdateTalentData()
 	wipe(talentList)
 	wipe(talentMap)
-	local row, col
 	for row = 1, MAX_TALENT_TIERS do
 		for col = 1, NUM_TALENT_COLUMNS do
 			local id, name, icon, learned = GetTalentInfo(row, col, 1)
