@@ -79,4 +79,7 @@ globals = {
 	"CANCEL",
 	"DECLINE",
 	"UnitRace",
+	"GetSpellInfo",
+	"Pre80API",
+	
 }

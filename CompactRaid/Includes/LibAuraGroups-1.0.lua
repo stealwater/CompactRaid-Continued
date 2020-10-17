@@ -57,35 +57,35 @@
 
 local AURA_GROUPS = {
 
-	["BLOODLUST"] = {	-- ÊÈÑª¼ÓËÙ
+	["BLOODLUST"] = {	-- ï¿½ï¿½Ñªï¿½ï¿½ï¿½ï¿½
 
-		2825,		-- ÈøÂú¼ÀË¾£ºÊÈÑª
-		32182,		-- ÈøÂú¼ÀË¾£ºÓ¢ÓÂ
-		80353,		-- ·¨Ê¦£ºÊ±¼äÅ¤Çú
-		160452,		-- Ðé¿Õ÷¥£ºÐé¿ÕÖ®·ç
-		90355,		-- ÈÛÑÒÈ®£ºÔ¶¹Å¿ñÂÒ
-		57723,		-- ¾«Æ£Á¦¾¡
-		57724,		-- ÐÄÂúÒâ×ã
-		80354,		-- Ê±¿Õ´íÎ»
+		2825,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½Ñª
+		32182,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¾ï¿½ï¿½Ó¢ï¿½ï¿½
+		80353,		-- ï¿½ï¿½Ê¦ï¿½ï¿½Ê±ï¿½ï¿½Å¤ï¿½ï¿½
+		160452,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½
+		90355,		-- ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½Ô¶ï¿½Å¿ï¿½ï¿½ï¿½
+		57723,		-- ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½
+		57724,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		80354,		-- Ê±ï¿½Õ´ï¿½Î»
 	},
 
-	["ICE_BLOCK"] = {	-- ·¨Ê¦
+	["ICE_BLOCK"] = {	-- ï¿½ï¿½Ê¦
 
-		27619,		-- º®±ùÆÁÕÏ
-		41425,		-- µÍÎÂ
+		27619,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		41425,		-- ï¿½ï¿½ï¿½ï¿½
 	},
 
-	["DEVINE_SHIELD"] = {	-- Ê¥ÆïÊ¿
+	["DEVINE_SHIELD"] = {	-- Ê¥ï¿½ï¿½Ê¿
 
-		642,		-- Ê¥¶ÜÊõ
-		1022,		-- ±£»¤Ö®ÊÖ
-		25771,		-- ×ÔÂÉ
+		642,		-- Ê¥ï¿½ï¿½ï¿½ï¿½
+		1022,		-- ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½
+		25771,		-- ï¿½ï¿½ï¿½ï¿½
 	},
 
-	["POWERWORD_SHIELD"] = {-- ÄÁÊ¦
+	["POWERWORD_SHIELD"] = {-- ï¿½ï¿½Ê¦
 
-		17,		-- ÕæÑÔÊõ£º¶Ü
-		6788,		-- ÐéÈõÁé»ê
+		17,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		6788,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	},
 }
 
@@ -128,7 +128,6 @@ local function AddGroup(groupList, group, ...)
 		groupList[group] = list
 	end
 
-	local i
 	for i = 1, count do
 		local id = select(i, ...)
 		local name = GetSpellInfo(id)
@@ -143,7 +142,6 @@ function lib:GetAuraGroup(aura)
 		return
 	end
 
-	local group
 	for group, list in pairs(lib.auraGroupList) do
 		if list[aura] then
 			return group
@@ -162,7 +160,6 @@ function lib:GetGroupAuras(group)
 	end
 
 	local temp = {}
-	local k, v
 	for k, v in pairs(list) do
 		temp[k] = v
 	end
@@ -174,7 +171,7 @@ local function FindAura(list, unit, exclude)
 		return
 	end
 
-	local _, aura, name, icon, count, dispelType, duration, expires, caster
+	local _, name, icon, count, dispelType, duration, expires, caster
 	for aura in pairs(list) do
 		if aura ~= exclude then
 			name, icon, count, dispelType, duration, expires, caster = UnitBuff(unit, aura)
@@ -211,7 +208,6 @@ function lib:UnitAura(unit, aura, group)
 
 	local list = InternalGetGroupAuras(group)
 	if not list then
-		local _, v
 		for _, v in pairs(lib.auraGroupList) do
 			if v[aura] then
 				list = v
@@ -225,7 +221,6 @@ end
 
 function lib:AuraSameGroup(aura1, aura2)
 	if aura1 and aura2 and aura1 ~= aura2 then
-		local group, list
 		for group, list in pairs(lib.auraGroupList) do
 			if list[aura1] and list[aura2] then
 				return group
@@ -246,12 +241,10 @@ function lib:GetGroupLocalName(group)
 end
 
 do
-	local group, data
 	for group, data in pairs(AURA_GROUPS) do
 		local list = {}
 		lib.auraGroupList[group] = list
 
-		local _, id
 		for _, id in ipairs(data) do
 			local name = GetSpellInfo(id)
 			if name then
