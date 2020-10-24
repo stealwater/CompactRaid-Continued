@@ -15,6 +15,7 @@ ignore = {
 	"213", -- Unused loop variable
 --	"431", -- shadowing upvalue
 	"43.", -- Shadowing an upvalue, an upvalue argument, an upvalue loop variable.
+	"511", -- Unreachable code
 	"542", -- An empty if branch
 }
 globals = {
@@ -229,4 +230,14 @@ globals = {
 	"ScrollFrameTemplate_OnMouseWheel",
 	"CUSTOM",
 	"clickable",
+	"IsAddOnLoaded",
+	"Clique",
+	"GetAddOnInfo",
+	"GetPlayerMapPosition",
+	"atan",
+	"UnitIsPlayer",
+	"UnitIsUnit",
+	"UnitInParty",
+	"UnitInRaid",
+	"GetPlayerFacing",
 }
