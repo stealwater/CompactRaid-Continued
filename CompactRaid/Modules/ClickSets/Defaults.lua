@@ -246,7 +246,6 @@ end
 local defaultdb = {}
 
 local temp = CLASS_DEFAULTS[CLASS]
-local key, value
 for key, value in pairs(temp) do
 	--if value == "emergent" then
 	--	defaultdb[key] = "buildin:emergent"
