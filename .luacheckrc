@@ -136,4 +136,8 @@ globals = {
 	"string.utf8upper",
 	"string.utf8lower",
 	"string.utf8reverse",
+	"CompactRaid",
+	"LibStub",
+	"CWDGMediaPack",
+	
 }
