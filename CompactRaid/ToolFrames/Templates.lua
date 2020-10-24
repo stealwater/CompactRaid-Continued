@@ -146,7 +146,6 @@ local function Menu_Finish(self)
 	local COUNT = #self.buttons
 
 	local maxTextLen = self.title:GetWidth()
-	local i
 	for i = 1, COUNT do
 		local b = self.buttons[i]
 		local text = b.text

@@ -86,7 +86,6 @@ function addon:FindUnitFrame(unit, byGuid)
 		return
 	end
 
-	local i
 	for i = 1, #unitFrames do
 		local button = unitFrames[i]
 		local displayedUnit = button.displayedUnit
@@ -200,7 +199,6 @@ local function UnitFrame_UpdateBuffs(self)
 
 	local unit = self.displayedUnit
 	if not unit then return end
-	local i
 	for i = 1, 3 do
 		local frame = self.buffFrames[i]
 		local name, icon, count, _, duration, expires = UnitBuff(unit, i, "RAID|PLAYER")
@@ -218,7 +216,6 @@ local function UnitFrame_UpdateDebuffs(self)
 
 	local filter = addon.db.onlyDispellable and "RAID" or ""
 	local index = 0
-	local i
 	for i = 1, 40 do
 		if index >= 3 then
 			break
@@ -280,7 +277,6 @@ local function UnitFrame_UpdateDispels(self)
 	local unit = self.displayedUnit
 	if not unit then return end
 	wipe(self.dispelable)
-	local i
 	for i = 1, 3 do
 		local frame = self.dispelFrames[i]
 		local name, _, _, dispelType = UnitDebuff(unit, i, "RAID")
@@ -409,7 +405,7 @@ end
 local function UnitFrame_UpdateVehicleStatus(self)
 	local unit = self.unit
 	if not unit then return end
-	
+
 	if addon.db.showVehicleHealthBar then
 		if UnitHasVehicleUI(unit) then
 			self.inVehicle = 1
@@ -558,7 +554,6 @@ local function UnitFrame_UpdateNameSize(self)
 		widthLimit = 0.75
 	end
 
-	local i
 	for i = strlen(text), 0, -1 do
 		name:SetText(strsub(text, 1, i))
 		if name:GetWidth() / buttonWidth <= widthLimit then
@@ -999,7 +994,7 @@ end
 
 local function UnitFrame_OnAttributeChanged(self, name, value)
 	if name == "unit" then
-		self.unit, self.displayedUnit, self.raidIndex, self.partyIndex = nil
+		self.unit, self.displayedUnit, self.raidIndex, self.partyIndex = nil, nil, nil, nil
 		if type(value) == "string" then
 			self.unit = value
 			self.displayedUnit = value
@@ -1210,9 +1205,9 @@ local optionTable = {
 	end,
 	
     showVehicleHealthBar = function(frame, value)
-		if value then 
+		if value then
 			frame:SetAttribute("toggleForVehicle", true)
-		else 
+		else
 			frame:SetAttribute("toggleForVehicle", false)
 		end
 		UnitFrame_UpdateVehicleStatus(frame)
@@ -1274,14 +1269,12 @@ local optionTable = {
 optionTable.nameYOffset = optionTable.nameXOffset
 
 local function OptionProc(func, ...)
-	local frame
 	for _, frame in ipairs(unitFrames) do
 		func(frame, ...)
 	end
 end
 
 do
-	local option, func
 	for option, func in pairs(optionTable) do
 		addon:RegisterOptionCallback(option, OptionProc, func)
 	end
@@ -1491,7 +1484,6 @@ function addon._UnitButton_OnLoad(frame)
 	frame.debuffFrames = {}
 	frame.dispelFrames = {}
 	frame.dispelable = {}
-	local i
 	for i = 1, 3 do
 		local buff = CreateAuraFrame("buff", name.."Buff"..i, buffParent, frame.buffFrames)
 		if i == 1 then
@@ -1576,7 +1568,6 @@ end
 
 addon:RegisterEventCallback("OnMediaChange", function(category, media)
 	if category == "statusbar" or category == "font" then
-		local frame
 		for _, frame in ipairs(unitFrames) do
 			if category == "statusbar" then
 				UnitFrame_UpdateStatusBarTexture(frame)
