@@ -165,4 +165,6 @@ globals = {
 	"CALENDAR_FILTERS",
 	"UnitIsConnected",
 	"UnitIsDeadOrGhost",
+	"ReloadUI",
+	"UNKNOWN",
 }

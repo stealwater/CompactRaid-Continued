@@ -258,7 +258,6 @@ end
 ------------------------------------------------------------
 
 local function OnDynamicUnitFrameCreated(unitFrame)
-	local i
 	for i = 1, addon:NumModules() do
 		local module = addon:GetModule(i)
 		if module and module:IsEnabled() then
