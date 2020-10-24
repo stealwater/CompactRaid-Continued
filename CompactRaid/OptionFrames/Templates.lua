@@ -389,7 +389,6 @@ function templates:CreateScaleOffsetGroup(parent, disableInCombat, textColor)
 	end
 
 	frame.ClearFocus = function(self)
-		local editbox
 		for _, editbox in pairs(self.editboxes) do
 			editbox:ClearFocus()
 		end
