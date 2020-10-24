@@ -615,7 +615,7 @@ local function Frame_RemoveData(self, position)
 	if type(position) == "number" then
 		data = tremove(self.listData, position)
 	else
-		position = #(self.listData)
+		-- position = #(self.listData)
 		data = tremove(self.listData)
 	end
 
