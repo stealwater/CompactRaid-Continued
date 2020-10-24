@@ -139,5 +139,7 @@ globals = {
 	"CompactRaid",
 	"LibStub",
 	"CWDGMediaPack",
-	
+	"NAME",
+	"DEFAULT",
+	"NONE",
 }
