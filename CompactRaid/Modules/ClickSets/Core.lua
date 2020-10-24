@@ -168,7 +168,6 @@ end
 
 -- Change action "menu" to "togglemenu" for 5.3
 local function Convert_ToggleMenu(db)
-	local key, value
 	for key, value in pairs(db) do
 		if value == "action:menu" then
 			db[key] = "action:togglemenu"

@@ -155,4 +155,5 @@ globals = {
 	"MACRO",
 	"gsub",
 	"action",
+	"SecureHandlerExecute",
 }
