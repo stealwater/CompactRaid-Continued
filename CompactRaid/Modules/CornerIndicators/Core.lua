@@ -29,7 +29,6 @@ local CLASS_CATEGORIES = {
 }
 
 local function ConvertData(db)
-	local key
 	for _, key in ipairs(module.INDICATOR_KEYS) do
 		if type(db[key]) == "table" then
 			db[key] = module:EncodeData(db[key])

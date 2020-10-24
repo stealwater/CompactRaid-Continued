@@ -27,14 +27,12 @@ local anchors = {
 	raid = CompactRaidGroupHeaderPet,
 }
 
-local k, v
 for k, v in pairs(anchors) do
 	frame:SetFrameRef("anchor"..k, v)
 end
 
 frame.buttons = {}
 
-local i
 for i = 1, 5 do
 	local button = CreateFrame("Button", frame:GetName().."Button"..i, frame, "AbinCompactRaidUnitButtonTemplate")
 	button:Hide(i)
@@ -83,7 +81,6 @@ local function GetFriendlyNpcFramesMatrix()
 	end
 
 	local count
-	local i
 	for i = 1, 5 do
 		if frame.buttons[i]:IsShown() then
 			count = i
@@ -170,7 +167,6 @@ local function UpdateLayout()
 	frame:SetAttribute("horiz", horiz)
 	frame:SetAttribute("spacing", spacing)
 
-	local i
 	for i = 2, 5 do
 		local button = frame.buttons[i]
 		button:ClearAllPoints()
@@ -186,7 +182,6 @@ addon:RegisterOptionCallback("grouphoriz", UpdateLayout)
 addon:RegisterOptionCallback("spacing", UpdateLayout)
 
 addon:RegisterOptionCallback("showFriendlyNpc", function(value)
-	local i
 	for i = 1, 5 do
 		local button = frame.buttons[i]
 		if value then

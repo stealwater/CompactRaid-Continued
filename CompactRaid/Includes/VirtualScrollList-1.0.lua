@@ -492,7 +492,7 @@ local function Frame_UpdateList(self)
 	local listButtons = self.listButtons
 	local listData = self.listData
 
-	local i, checkedButton
+	local checkedButton
 	for i = 1, pageSize do
 		local button = listButtons[i]
 		local dataIndex = i + offset
@@ -558,7 +558,6 @@ end
 
 local function Frame_FindData(self, data, compareFunc)
 	compareFunc = type(compareFunc) == "function" and compareFunc
-	local i, stored
 	for i, stored in ipairs(self.listData) do
 		local d = DecodeData(stored)
 		if compareFunc then
@@ -616,7 +615,7 @@ local function Frame_RemoveData(self, position)
 	if type(position) == "number" then
 		data = tremove(self.listData, position)
 	else
-		position = #(self.listData)
+		-- position = #(self.listData)
 		data = tremove(self.listData)
 	end
 

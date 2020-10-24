@@ -126,42 +126,42 @@ function tabFrame:OnTabSelected(id, category)
 	listSelection = nil
 	list:Clear()
 
-	local lib = module.library
-	local id = AddElement(category, 0, DEFAULT, CompactRaid:GetDefaultMedia(category))
+	-- It seems that below is deprecated?  	by stealwater
 
-	if lib and type(lib.List) == "function" and type(lib.Fetch) == "function" then
-		local mt = lib:List(category)
-		local key, file
-		for _, key in ipairs(mt) do
-			local file = lib:Fetch(category, key)
-			id = AddElement(category, id, key, file)
-		end
-	elseif lib and type(lib.registry) == "table" then
-		local temp = {}
-		local data
-		for _, data in ipairs(lib.registry) do
-			if data[1] == category then
-				local key, file = data[2], data[3]
-				if type(key) == "string" and type(file) == "string" then
-					tinsert(temp, { key = key, file = file })
-				end
-			end
-		end
+	-- local lib = module.library
+	-- id = AddElement(category, 0, DEFAULT, CompactRaid:GetDefaultMedia(category))
 
-		sort(temp, function(t1, t2) return t1.key < t2.key end) -- Dude, I have to sort for ya!
+	-- if lib and type(lib.List) == "function" and type(lib.Fetch) == "function" then
+	-- 	local mt = lib:List(category)
+	-- 	for _, key in ipairs(mt) do
+	-- 		local file = lib:Fetch(category, key)
+	-- 		id = AddElement(category, id, key, file)
+	-- 	end
+	-- elseif lib and type(lib.registry) == "table" then
+	-- 	local temp = {}
+	-- 	for _, data in ipairs(lib.registry) do
+	-- 		if data[1] == category then
+	-- 			local key, file = data[2], data[3]
+	-- 			if type(key) == "string" and type(file) == "string" then
+	-- 				tinsert(temp, { key = key, file = file })
+	-- 			end
+	-- 		end
+	-- 	end
 
-		for _, data in ipairs(temp) do
-			id = AddElement(category, id, data.key, data.file)
-		end
-	else
-		if category == "statusbar" then
-			id = AddElement(category, id, "Blizzard", "Interface\\TargetingFrame\\UI-StatusBar")
-		elseif category == "border" then
-			id = AddElement(category, id, "Blizzard Gold Border", "Interface\\DialogFrame\\UI-DialogBox-Gold-Border")
-		elseif category == "background" then
-			id = AddElement(category, id, "Blizzard Parchment", "Interface\\AchievementFrame\\UI-Achievement-Parchment-Horizontal")
-		end
-	end
+	-- 	sort(temp, function(t1, t2) return t1.key < t2.key end) -- Dude, I have to sort for ya!
+
+	-- 	for _, data in ipairs(temp) do
+	-- 		id = AddElement(category, id, data.key, data.file)
+	-- 	end
+	-- else
+	-- 	if category == "statusbar" then
+	-- 		id = AddElement(category, id, "Blizzard", "Interface\\TargetingFrame\\UI-StatusBar")
+	-- 	elseif category == "border" then
+	-- 		id = AddElement(category, id, "Blizzard Gold Border", "Interface\\DialogFrame\\UI-DialogBox-Gold-Border")
+	-- 	elseif category == "background" then
+	-- 		id = AddElement(category, id, "Blizzard Parchment", "Interface\\AchievementFrame\\UI-Achievement-Parchment-Horizontal")
+	-- 	end
+	-- end
 
 	local position = listSelection or 1
 	list:SetSelection(position)

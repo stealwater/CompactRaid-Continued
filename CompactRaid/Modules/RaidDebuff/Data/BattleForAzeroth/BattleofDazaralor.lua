@@ -9,13 +9,13 @@ local module = CompactRaid:GetModule("RaidDebuff")
 if not module then return end
 
 local TIER = 8 -- BFA
-local INSTANCE = 1176 -- Battle of Dazar'alor 
+local INSTANCE = 1176 -- Battle of Dazar'alor
 local BOSS
 
 
-if UnitFactionGroup("player") == "Horde" then 
-	
-	-- Horde 
+if UnitFactionGroup("player") == "Horde" then
+
+	-- Horde
 	BOSS = 2333 -- Champion of the Light (H)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 283617, 5)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 283573, 4)
@@ -28,17 +28,17 @@ if UnitFactionGroup("player") == "Horde" then
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 289307, 5)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 282010, 5) -- Horde only
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 285659, 5) -- Horde only
-	
+
 	BOSS = 2341 -- Jadefire Masters (H)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 282037)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 285632)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 284374, 1)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 286987)
-	
+
 end
 
-if UnitFactionGroup("player") == "Alliance" then 
-	
+if UnitFactionGroup("player") == "Alliance" then
+
 	-- Alliance
 	BOSS = 2344 -- Champion of the Light (A)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 283617, 5)
@@ -50,7 +50,7 @@ if UnitFactionGroup("player") == "Alliance" then
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 285632)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 284374, 1)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 286987)
-	
+
 	BOSS = 2340 -- Grong the Revenant (A)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 285671)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 285875)
@@ -58,7 +58,7 @@ if UnitFactionGroup("player") == "Alliance" then
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 289307, 5)
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 282415, 5) -- Alliance only
 	module:RegisterDebuff(TIER, INSTANCE, BOSS, 286433, 5) -- Alliance only
-	
+
 end
 
 BOSS = 2342 -- Opulence

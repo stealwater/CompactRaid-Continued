@@ -93,7 +93,6 @@ end)
 
 local groupPanels = {}
 
-local i
 for i = 1, 8 do
 	local panel = CreateFrame("Button", frame:GetName().."Group"..i, frame)
 	groupPanels[i] = panel
@@ -168,7 +167,6 @@ end
 frame:SetScript("OnShow", function(self)
 	arrowFrame:Hide()
 
-	local i
 	if not InCombatLockdown() then
 		if addon.chardb.showRaidPets then
 			CompactRaidGroupHeaderPet:Hide()
@@ -230,7 +228,6 @@ local function Button_OnDragStart(self)
 	end
 
 	local group = select(3, GetRaidRosterInfo(id))
-	local i
 	for i = 1, 8 do
 		groupPanels[i]:EnableMouse(i ~= group)
 	end
@@ -243,7 +240,6 @@ local function Button_OnDragStop(self)
 	cursor:Hide()
 
 	local targetFrame = GetMouseFocus()
-	local i
 	for i = 1, 8 do
 		groupPanels[i]:EnableMouse(false)
 	end
