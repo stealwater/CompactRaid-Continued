@@ -64,7 +64,7 @@ if type(UICreateModularOptionFrame_IsNewerVersion) == "function" and not UICreat
 -- Recursive function for calculating the effective height of a given branch
 local function GetBranchHeight(self)
 	local height = BUTTON_HEIGHT
-	if self.expanded then		
+	if self.expanded then
 		for i = 1, #self.nodes do
 			height = height + GetBranchHeight(self.nodes[i])
 		end
@@ -384,7 +384,7 @@ local function Frame_AddCategory(self, key, title, desc, parent)
 
 	if type(UICreateInterfaceOptionPage) == "function" then
 		page = UICreateInterfaceOptionPage(self:GetName().."_UserPage_"..category.id, title, desc, nil, self.pageContainer)
-		page.SetDialogStyle, page.Open, page.Toggle = nil
+		page.SetDialogStyle, page.Open, page.Toggle = nil, nil, nil
 	else
 		page = CreateFrame("Frame", pageName, self.pageContainer)
 		page.title = page:CreateFontString(pageName.."Title", "ARTWORK", "GameFontNormal")
