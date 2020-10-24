@@ -175,7 +175,7 @@ function module:EncodeData(db)
 		return
 	end
 
-	local key, def, text
+	local text
 	for key, def in pairs(OPTION_KEYS) do
 		local value = db[key]
 		local isColor = type(value) == "number" and strlen(key) == 2 and strfind(key, "(.+)(%d+)")
@@ -206,7 +206,6 @@ function module:DecodeData(text, db)
 		text = ""
 	end
 
-	local key, def
 	for key, def in pairs(OPTION_KEYS) do
 		local _, _, value = strfind(text, "%["..key.."%]#(.-)#")
 		if value then
@@ -235,7 +234,6 @@ end
 
 local defaultdb = {}
 
-local _, key
 for _, key in ipairs(module.INDICATOR_KEYS) do
 	local data = {}
 	CompactRaid.tcopy(DEFAULTS_INDICATOR, data)

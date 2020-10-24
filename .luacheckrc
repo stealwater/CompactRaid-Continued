@@ -156,4 +156,13 @@ globals = {
 	"gsub",
 	"action",
 	"SecureHandlerExecute",
+	"GetClassDefaults",
+	"ToggleDropDownMenu",
+	"ColorPickerFrame",
+	"HIDE",
+	"INT_SPELL_DURATION_SEC",
+	"LoadMicroButtonTextures",
+	"CALENDAR_FILTERS",
+	"UnitIsConnected",
+	"UnitIsDeadOrGhost",
 }
