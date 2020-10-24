@@ -753,7 +753,6 @@ local DYING_AURAS = {
 }
 
 local function FindDyingAura(unit, aura)
-	local i
 	for i = 1, 20 do
 		local name, icon, _, _, duration = UnitDebuff(unit, i)
 		if not name or not duration then
@@ -1203,7 +1202,7 @@ local optionTable = {
 		UnitFrame_UpdateHealthColor(frame)
 		UnitFrame_UpdatePowerType(frame)
 	end,
-	
+
     showVehicleHealthBar = function(frame, value)
 		if value then
 			frame:SetAttribute("toggleForVehicle", true)
@@ -1284,7 +1283,6 @@ end
 local DYNAMIC_OPTIONS = { "powerBarHeight", "nameHeight", "showbarbkgnd", "nameXOffset", "nameYOffset", "showBuffs", "showDebuffs", "showDispels" }
 
 local function CheckAndApplyDynamicOptions(frame)
-	local option
 	for _, option in ipairs(DYNAMIC_OPTIONS) do
 		local func = optionTable[option]
 		local value = addon.db[option]
