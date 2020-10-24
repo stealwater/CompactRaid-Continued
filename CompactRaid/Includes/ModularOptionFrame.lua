@@ -64,8 +64,7 @@ if type(UICreateModularOptionFrame_IsNewerVersion) == "function" and not UICreat
 -- Recursive function for calculating the effective height of a given branch
 local function GetBranchHeight(self)
 	local height = BUTTON_HEIGHT
-	if self.expanded then
-		local i
+	if self.expanded then		
 		for i = 1, #self.nodes do
 			height = height + GetBranchHeight(self.nodes[i])
 		end
@@ -91,7 +90,6 @@ local function CatButton_Expand(self)
 
 	self.expanded = 1
 
-	local _, child
 	for _, child in ipairs(self.nodes) do
 		child:Show()
 	end
@@ -117,7 +115,6 @@ local function CatButton_Collapse(self)
 
 	self.expanded = nil
 
-	local _, child
 	for _, child in ipairs(self.nodes) do
 		child:Hide()
 	end
@@ -312,7 +309,6 @@ local function ScrollFrame_EnsureVisible(self, button)
 	end
 
 	if button:GetTop() > self:GetTop() then
-		local i
 		for i = 1, 100 do
 			if button:GetTop() > self:GetTop() then
 				slider:SetValue(slider:GetValue() - BUTTON_HEIGHT)
@@ -322,7 +318,6 @@ local function ScrollFrame_EnsureVisible(self, button)
 		end
 
 	elseif button:GetBottom() < self:GetBottom() then
-		local i
 		for i = 1, 100 do
 			if button:GetBottom() < self:GetBottom() then
 				slider:SetValue(slider:GetValue() + BUTTON_HEIGHT)
@@ -469,7 +464,6 @@ local function Frame_GetOperationButton(self, index)
 	end
 
 	if type(index) == "string" then
-		local _, button
 		for _, button in ipairs(self.operationButtons) do
 			if button:GetText() == index then
 				return button
@@ -550,11 +544,11 @@ function UICreateModularOptionFrame(name, title, version, button1, ...)
 	texture:SetBlendMode("ADD")
 	texture:SetVertexColor(0.196, 0.388, 0.8, 0.8)
 
-	local texture = catList:CreateTexture(nil, "BORDER")
-	catList.checkedTexture = texture
-	texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
-	texture:SetBlendMode("ADD")
-	texture:SetVertexColor(1, 1, 1, 0.8)
+	local checkedTexture = catList:CreateTexture(nil, "BORDER")
+	catList.checkedTexture = checkedTexture
+	checkedTexture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	checkedTexture:SetBlendMode("ADD")
+	checkedTexture:SetVertexColor(1, 1, 1, 0.8)
 
 	local rightPanel = CreateFrame("Frame", name.."RightPanel", frame, "BackdropTemplate")
 	frame.rightPanel = rightPanel
@@ -574,7 +568,7 @@ function UICreateModularOptionFrame(name, title, version, button1, ...)
 	if button1 then
 		local buttonsTexts = { button1, ... }
 
-		local i, lastButton
+		local lastButton
 		for i = #buttonsTexts, 1, -1 do
 			local button = CreateFrame("Button", name.."OperationButton"..i, frame, "UIPanelButtonTemplate")
 			button:SetSize(96, 24)

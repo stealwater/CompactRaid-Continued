@@ -12,6 +12,7 @@ ignore = {
 	"211/L", -- Unused local variable "L"
 	"211/CL", -- Unused local variable "CL"
 	"212", -- Unused argument
+	"213", -- Unused loop variable
 --	"431", -- shadowing upvalue
 	"43.", -- Shadowing an upvalue, an upvalue argument, an upvalue loop variable.
 	"542", -- An empty if branch
@@ -101,4 +102,9 @@ globals = {
 	"MAX_TALENT_TIERS",
 	"NUM_TALENT_COLUMNS",
 	"IsAutoRepeatSpell",
+	"floor",
+	"UIParent",
+	"GAME_VERSION_LABEL",
+	"UICreateModularOptionFrame_IsNewerVersion",
+	"UICreateModularOptionFrame",
 }
