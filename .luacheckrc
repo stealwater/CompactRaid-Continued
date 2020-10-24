@@ -177,4 +177,10 @@ globals = {
 	"EJ_GetCurrentTier",
 	"GENERAL",
 	"EJ_SelectTier",
+	"INSTANCE",
+	"BOSS",
+	"ADD",
+	"DELETE",
+	"EJ_GetEncounterInfo",
+	"DebuffTypeColor",
 }

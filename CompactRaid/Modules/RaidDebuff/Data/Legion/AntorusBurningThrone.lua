@@ -84,5 +84,5 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 250669)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 251570)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 257299)
 
-BOSS = 0
+--BOSS = 0
 --module:RegisterDebuff(TIER, INSTANCE, BOSS, 0)

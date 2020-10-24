@@ -33,4 +33,4 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 271246)
 BOSS = 2198 -- Yenajz
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 274904)
 
-BOSS = 2210 -- Kraulok
+-- BOSS = 2210 -- Kraulok

@@ -23,7 +23,7 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 156152, 5)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 156143)
 
 -- Tectus
-BOSS = 1195
+-- BOSS = 1195
 
 -- Brackenspore
 BOSS = 1196

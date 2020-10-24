@@ -36,7 +36,7 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 265127, 4)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 265206, 2)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 266948)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 265212, 4)
-module:RegisterDebuff(TIER, INSTANCE, BOSS, 265178, 5) -- 2018-9-17 çÎç¿@ngacn
+module:RegisterDebuff(TIER, INSTANCE, BOSS, 265178, 5) -- 2018-9-17 ï¿½ï¿½ï¿½@ngacn
 
 BOSS = 2195 -- Zul
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 274195, 1)
@@ -55,4 +55,4 @@ module:RegisterDebuff(TIER, INSTANCE, BOSS, 263334)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 267700, 4)
 module:RegisterDebuff(TIER, INSTANCE, BOSS, 267409, 5)
 
-BOSS = 0 -- Trash
+-- BOSS = 0 -- Trash
