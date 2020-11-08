@@ -83,6 +83,7 @@ module.DEFAULT_SPELLS = {
 		6940, -- Hand of Sacrifice
 		212056, -- Absolution
 		85222, -- Light of Dawn
+		210256, -- Blessing of Sanctuary
 	},
 
 	WARRIOR = {
