@@ -36,6 +36,9 @@ module.DEFAULT_SPELLS = {
 		48438, -- Wild Growth
 		29166, -- Innervate
 		102342, -- Ironbark
+		102351, -- Cenarion Ward
+		207385, -- Spring Blossoms
+
 	},
 
 	SHAMAN = {
