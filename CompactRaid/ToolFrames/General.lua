@@ -4,7 +4,7 @@
 -- Abin
 -- 2012/1/14
 ------------------------------------------------------------
-
+local C_PartyInfo = {}
 local ConvertToParty = C_PartyInfo.ConvertToParty
 local ConvertToRaid = C_PartyInfo.ConvertToRaid
 local SetEveryoneIsAssistant = SetEveryoneIsAssistant
