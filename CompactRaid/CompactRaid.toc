@@ -1,6 +1,6 @@
-## Interface: 90002
+## Interface: 90100
 ## Title: CompactRaid
-## Version: 6.03
+## Version: 6.04
 ## Author: Abin
 ## SavedVariables: CompactRaidDB
 ## OptionalDeps: Clique, TomTom
